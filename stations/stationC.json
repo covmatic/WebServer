@@ -1,0 +1,1178 @@
+[
+  {
+    "name": "Initial Checks",
+    "tasks": [
+      {
+        "name": "Check that have been cleaned",
+        "instructions": [
+          {
+            "name": "the deck of the robot"
+          },
+          {
+            "name": "the removable parts needed for operating the machines"
+          }
+        ]
+      },
+      {
+        "name": "Check that the robot is equipped with",
+        "instructions": [
+          {
+            "name": "a p20 multi channel pipette"
+          },
+          {
+            "name": "a p300 single channel pipettes"
+          }
+        ]
+      },
+      {
+        "name": "Check that in freezer at - 20 °C there are",
+        "instructions": [
+          {
+            "name": "a 24 position aluminum block"
+          },
+          {
+            "name": "3 different 96 position aluminum blocks"
+          }
+        ]
+      },
+      {
+        "name": "Place a sterile racks full of 200 µL filter tips in SLOT 10"
+      },
+      {
+        "name": "Place a sterile racks full of 20 µL filter tips but with the row A empty in SLOT 11"
+      },
+      {
+        "name": "Place a sterile racks full of 20 µL filter tips in",
+        "instructions": [
+          {
+            "name": "SLOT9"
+          },
+          {
+            "name": "SLOT7"
+          },
+          {
+            "name": "SLOT6"
+          },
+          {
+            "name": "SLOT3"
+          },
+          {
+            "name": "SLOT2"
+          }
+        ]
+      },
+      {
+        "name": "Place the temperature module in SLOT 4"
+      }
+    ]
+  },
+  {
+    "name": "Activate Temperature Module",
+    "tasks": [
+      {
+        "name": "Start pre-cooling the temperature module to 4 °C",
+        "action": "3/settemp"
+      }
+    ]
+  },
+  {
+    "name": "Calibrate Opentrons",
+    "tasks": [
+      {
+        "name": "Run the labware calibration. In this process the operator will use:",
+        "instructions": [
+          {
+            "name": "items that will be employed during the run",
+            "notes": [
+              "the racks full of filter tips already placed on the deck"
+            ]
+          },
+          {
+            "name": "items dedicated to calibration (not sterile)",
+            "notes": [
+              "the 96 positions aluminum blocks (SLOT 1, SLOT 8 and on top of the temperature module in SLOT 4)",
+              "the 24 positions aluminum block (SLOT 5)",
+              "the sterile 96 well 200 µL BIO-RAD PCR plate (on top of the 96 position aluminum block placed on the temperature module located in SLOT 4)",
+              "the sterile 96 well 200 µL PCR plate (SLOT 1)",
+              "the 200 µL PCR tube strip placed in the 1st column (on the left) of the 96 position aluminum block in SLOT 8",
+              "the 1.5 mL sterile tube (screw cap type) in the position A1 (top left) of the 24 position aluminum block in SLOT 5"
+            ]
+          }
+        ],
+        "action": "3/calibration"
+      }
+    ]
+  },
+  {
+    "name": "Final Issuance Step",
+    "tasks": [
+      {
+        "name": "Remove from the deck the items dedicated to calibration"
+      }
+    ]
+  },
+  {
+    "name": "1st RUN",
+    "tasks": [
+      {
+        "name": "Initial Station C Steps",
+        "instructions": [
+          {
+            "name": "Remove the 1st 96 position aluminum block from the freezer and place on top of the temperature module already located in SLOT 4"
+          },
+          {
+            "name": "Scan the barcode on a 96 well 200 µL BIO-RAD PCR ",
+            "isInput":1
+          },
+          {
+            "name": "Place the 96 well 200 µL BIO-RAD PCR plate on the 1st 96 position aluminum block placed on top of the temperature module already located in SLOT 4"
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "output"
+
+      },
+      {
+        "name": "Temperature Module Verification",
+        "instructions": [
+          {
+            "name": "Ensure the temperature module has reached 4 °C"
+          }
+        ],
+        "action": "3/calibration"
+      },
+      {
+        "name": "Prepare the 24 position prechilled aluminum block for reagents",
+        "instructions": [
+          {
+            "name": "remove the 24 position aluminum block from the freezer"
+          },
+          {
+            "name": "pipette in a 1.5 mL sterile tube (screw cap type)",
+            "notes": [
+              "1.050 mL of 2x One-Step RT-qPCR Mastermix1",
+              "220 µL of Primer/Probe mix (nCov and IEC primers)"
+            ]
+          },
+          {
+            "name": "place the filled 1.5 mL sterile tube (screw cap) in position A1 (top left) of the 24 position prechilled aluminum block"
+          }
+        ]
+      },
+      {
+        "name": "Place the 24 position prechilled aluminum block with the filled 1.5 mL sterile tube in SLOT 5"
+      },
+      {
+        "name": "Prepare a 2nd 96 position prechilled aluminum block",
+        "instructions": [
+          {
+            "name": "remove a 2nd 96 position aluminum block from the freezer"
+          },
+          {
+            "name": "place into the 1st column (on the left) a 200 µL PCR tube strip"
+          }
+        ]
+      },
+      {
+        "name": "Place the 2nd 96 position prechilled aluminum block containing the tube strip in SLOT 8"
+      },
+      {
+        "name": "Remove from the freezer a 3rd 96 position aluminum block and place it in SLOT 1"
+      },
+      {
+        "name": "Scan the barcode on the centrifuged 96 well 200 µL PCR plate that was the output from Station B",
+        "instructions": [
+          {
+            "name": "Scan the barcode",
+            "isInput":1
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "input/B"
+
+      },
+      {
+        "name": "Place the 96 well 200 µL PCR plate that was the output from Station B on top of the 96 position prechilled aluminum block already located in SLOT 1"
+      },
+      {
+        "name": "Double-check that",
+        "instructions": [
+          {
+            "name": "the positioning of the labware using the outline in the SOP relevant to station C as a reference"
+          },
+          {
+            "name": "the labware is inserted the right way around (well A1 or 1 at the top-left)"
+          },
+          {
+            "name": "the labware is properly clicked into each deck slots"
+          },
+          {
+            "name": "the tubes are seated flat in their tube racks"
+          }
+        ]
+      },
+      {
+        "name": "Run of Protocol",
+        "instructions": [
+          {
+            "name": "Execute the protocol named 'v1_station_c_S9_bp_primerdesign_p20multi.py'"
+          }
+        ],
+        "action": "3/Run"
+      },
+      {
+        "name": "Prepare the positive control diluted down to 1.7 copies/µL",
+        "instructions": [
+          {
+            "name": "label 3 different 1.5 mL sterile tubes as 1, 2 and 3"
+          },
+          {
+            "name": "pipette 990 μL of nuclease free water into tube 1 and 2"
+          },
+          {
+            "name": "pipette 90 μL of nuclease free water into tube 3"
+          },
+          {
+            "name": "transfer 10 μL of resuspended PCT into the tube 1 and vortex tube 1 for 20 times"
+          },
+          {
+            "name": "transfer 10 μL of the content of tube 1 to tube 2 and vortex tube 2 for 20 times"
+          },
+          {
+            "name": "transfer 10 μL of the content of tube 2 to tube 3 and vortex tube 3 for 20 times (now tube 3 contains 1.7 copies/μL)"
+          }
+        ]
+      },
+      {
+        "name": "Collect the 96 well 200 µL BIO-RAD PCR plate from SLOT 4. This is the process output"
+      },
+      {
+        "name": "Scan the barcode on the 96 well 200 µL BIO-RAD PCR plate from SLOT 4",
+        "instructions": [
+          {
+            "name": "Scan the barcode",
+            "isInput": 1
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "output"
+
+      },
+      {
+        "name": "In position A10 of the 96 well 200 µL BIO-RAD PCR plate: pipette 8 µL of the positive control from the tube labeled as 3 (1.7 copies/µL)"
+      },
+      {
+        "name": "Seal the 96 well 200 µL BIO-RAD PCR plate with its own transparent sealing"
+      },
+      {
+        "name": "Centrifuge the sealed 96 well 200 µL BIO-RAD PCR plate (2000 rpm, 5 min, 4 °C)"
+      },
+      {
+        "name": "Move the centrifuged 96 well 200 µL BIO-RAD PCR plate to the PCR room"
+      },
+      {
+        "name": "Collect the 96 well 200 µL PCR plate with the remaining extractions from SLOT 1"
+      },
+      {
+        "name": "Seal the 96 well 200 µL PCR plate with the remaining extractions"
+      },
+      {
+        "name": "Place the sealed 96 well 200 µL PCR plate with the remaining extractions into the freezer at - 20 °C"
+      },
+      {
+        "name": "Remove from the deck and throw out",
+        "instructions": [
+          {
+            "name": "the tube strip"
+          },
+          {
+            "name": "the 1.5 mL sterile tube (screw cap type)"
+          }
+        ]
+      },
+      {
+        "name": "Remove from the deck and wipe down using wipes wet with ethanol",
+        "instructions": [
+          {
+            "name": "the 3 different 96 position aluminum blocks"
+          },
+          {
+            "name": "the 24 position aluminum block"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "2nd RUN",
+    "tasks": [
+      {
+        "name": "Start a new Run",
+        "action": "getnewrunid",
+        "instructions": [
+          {
+            "name": "Get new run ID"
+          }
+        ]
+      },
+      {
+        "name": "Initial Station C Steps",
+        "instructions": [
+          {
+            "name": "Remove the 1st 96 position aluminum block from the freezer and place on top of the temperature module already located in SLOT 4"
+          },
+          {
+            "name": "Scan the barcode on a 96 well 200 µL BIO-RAD PCR ",
+            "isInput": 1
+          },
+          {
+            "name": "Place the 96 well 200 µL BIO-RAD PCR plate on the 1st 96 position aluminum block placed on top of the temperature module already located in SLOT 4"
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "output"
+
+      },
+      {
+        "name": "Temperature Module Verification",
+        "instructions": [
+          {
+            "name": "Ensure the temperature module has reached 4 °C"
+          }
+        ],
+        "action": "3/calibration"
+      },
+      {
+        "name": "Prepare the 24 position prechilled aluminum block for reagents",
+        "instructions": [
+          {
+            "name": "remove the 24 position aluminum block from the freezer"
+          },
+          {
+            "name": "pipette in a 1.5 mL sterile tube (screw cap type)",
+            "notes": [
+              "1.050 mL of 2x One-Step RT-qPCR Mastermix1",
+              "220 µL of Primer/Probe mix (nCov and IEC primers)"
+            ]
+          },
+          {
+            "name": "place the filled 1.5 mL sterile tube (screw cap) in position A1 (top left) of the 24 position prechilled aluminum block"
+          }
+        ]
+      },
+      {
+        "name": "Place the 24 position prechilled aluminum block with the filled 1.5 mL sterile tube in SLOT 5"
+      },
+      {
+        "name": "Prepare a 2nd 96 position prechilled aluminum block",
+        "instructions": [
+          {
+            "name": "remove a 2nd 96 position aluminum block from the freezer"
+          },
+          {
+            "name": "place into the 1st column (on the left) a 200 µL PCR tube strip"
+          }
+        ]
+      },
+      {
+        "name": "Place the 2nd 96 position prechilled aluminum block containing the tube strip in SLOT 8"
+      },
+      {
+        "name": "Remove from the freezer a 3rd 96 position aluminum block and place it in SLOT 1"
+      },
+      {
+        "name": "Scan the barcode on the centrifuged 96 well 200 µL PCR plate that was the output from Station B",
+        "instructions": [
+          {
+            "name": "Scan the barcode",
+            "isInput":1
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "input/B"
+
+      },
+      {
+        "name": "Place the 96 well 200 µL PCR plate that was the output from Station B on top of the 96 position prechilled aluminum block already located in SLOT 1"
+      },
+      {
+        "name": "Double-check that",
+        "instructions": [
+          {
+            "name": "the positioning of the labware using the outline in the SOP relevant to station C as a reference"
+          },
+          {
+            "name": "the labware is inserted the right way around (well A1 or 1 at the top-left)"
+          },
+          {
+            "name": "the labware is properly clicked into each deck slots"
+          },
+          {
+            "name": "the tubes are seated flat in their tube racks"
+          }
+        ]
+      },
+      {
+        "name": "Run of Protocol",
+        "instructions": [
+          {
+            "name": "Execute the protocol named 'v1_station_c_S9_bp_primerdesign_p20multi.py'"
+          }
+        ],
+        "action": "3/Run"
+      },
+      {
+        "name": "Prepare the positive control diluted down to 1.7 copies/µL",
+        "instructions": [
+          {
+            "name": "label 3 different 1.5 mL sterile tubes as 1, 2 and 3"
+          },
+          {
+            "name": "pipette 990 μL of nuclease free water into tube 1 and 2"
+          },
+          {
+            "name": "pipette 90 μL of nuclease free water into tube 3"
+          },
+          {
+            "name": "transfer 10 μL of resuspended PCT into the tube 1 and vortex tube 1 for 20 times"
+          },
+          {
+            "name": "transfer 10 μL of the content of tube 1 to tube 2 and vortex tube 2 for 20 times"
+          },
+          {
+            "name": "transfer 10 μL of the content of tube 2 to tube 3 and vortex tube 3 for 20 times (now tube 3 contains 1.7 copies/μL)"
+          }
+        ]
+      },
+      {
+        "name": "Collect the 96 well 200 µL BIO-RAD PCR plate from SLOT 4. This is the process output"
+      },
+      {
+        "name": "Scan the barcode on the 96 well 200 µL BIO-RAD PCR plate from SLOT 4",
+        "instructions": [
+          {
+            "name": "Scan the barcode",
+            "isInput":1
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "output"
+
+      },
+      {
+        "name": "In position A10 of the 96 well 200 µL BIO-RAD PCR plate: pipette 8 µL of the positive control from the tube labeled as 3 (1.7 copies/µL)"
+      },
+      {
+        "name": "Seal the 96 well 200 µL BIO-RAD PCR plate with its own transparent sealing"
+      },
+      {
+        "name": "Centrifuge the sealed 96 well 200 µL BIO-RAD PCR plate (2000 rpm, 5 min, 4 °C)"
+      },
+      {
+        "name": "Move the centrifuged 96 well 200 µL BIO-RAD PCR plate to the PCR room"
+      },
+      {
+        "name": "Collect the 96 well 200 µL PCR plate with the remaining extractions from SLOT 1"
+      },
+      {
+        "name": "Seal the 96 well 200 µL PCR plate with the remaining extractions"
+      },
+      {
+        "name": "Place the sealed 96 well 200 µL PCR plate with the remaining extractions into the freezer at - 20 °C"
+      },
+      {
+        "name": "Remove from the deck and throw out",
+        "instructions": [
+          {
+            "name": "the tube strip"
+          },
+          {
+            "name": "the 1.5 mL sterile tube (screw cap type)"
+          }
+        ]
+      },
+      {
+        "name": "Remove from the deck and wipe down using wipes wet with ethanol",
+        "instructions": [
+          {
+            "name": "the 3 different 96 position aluminum blocks"
+          },
+          {
+            "name": "the 24 position aluminum block"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "3rd RUN",
+    "tasks": [
+      {
+        "name": "Start a new Run",
+        "action": "getnewrunid",
+        "instructions": [
+          {
+            "name": "Get new run ID"
+          }
+        ]
+      },
+      {
+        "name": "Initial Station C Steps",
+        "instructions": [
+          {
+            "name": "Remove the 1st 96 position aluminum block from the freezer and place on top of the temperature module already located in SLOT 4"
+          },
+          {
+            "name": "Scan the barcode on a 96 well 200 µL BIO-RAD PCR ",
+            "isInput": 1
+          },
+          {
+            "name": "Place the 96 well 200 µL BIO-RAD PCR plate on the 1st 96 position aluminum block placed on top of the temperature module already located in SLOT 4"
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "output"
+
+      },
+      {
+        "name": "Temperature Module Verification",
+        "instructions": [
+          {
+            "name": "Ensure the temperature module has reached 4 °C"
+          }
+        ],
+        "action": "3/calibration"
+      },
+      {
+        "name": "Prepare the 24 position prechilled aluminum block for reagents",
+        "instructions": [
+          {
+            "name": "remove the 24 position aluminum block from the freezer"
+          },
+          {
+            "name": "pipette in a 1.5 mL sterile tube (screw cap type)",
+            "notes": [
+              "1.050 mL of 2x One-Step RT-qPCR Mastermix1",
+              "220 µL of Primer/Probe mix (nCov and IEC primers)"
+            ]
+          },
+          {
+            "name": "place the filled 1.5 mL sterile tube (screw cap) in position A1 (top left) of the 24 position prechilled aluminum block"
+          }
+        ]
+      },
+      {
+        "name": "Place the 24 position prechilled aluminum block with the filled 1.5 mL sterile tube in SLOT 5"
+      },
+      {
+        "name": "Prepare a 2nd 96 position prechilled aluminum block",
+        "instructions": [
+          {
+            "name": "remove a 2nd 96 position aluminum block from the freezer"
+          },
+          {
+            "name": "place into the 1st column (on the left) a 200 µL PCR tube strip"
+          }
+        ]
+      },
+      {
+        "name": "Place the 2nd 96 position prechilled aluminum block containing the tube strip in SLOT 8"
+      },
+      {
+        "name": "Remove from the freezer a 3rd 96 position aluminum block and place it in SLOT 1"
+      },
+      {
+        "name": "Scan the barcode on the centrifuged 96 well 200 µL PCR plate that was the output from Station B",
+        "instructions": [
+          {
+            "name": "Scan the barcode",
+            "isInput": 1
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "input/B"
+
+      },
+      {
+        "name": "Place the 96 well 200 µL PCR plate that was the output from Station B on top of the 96 position prechilled aluminum block already located in SLOT 1"
+      },
+      {
+        "name": "Double-check that",
+        "instructions": [
+          {
+            "name": "the positioning of the labware using the outline in the SOP relevant to station C as a reference"
+          },
+          {
+            "name": "the labware is inserted the right way around (well A1 or 1 at the top-left)"
+          },
+          {
+            "name": "the labware is properly clicked into each deck slots"
+          },
+          {
+            "name": "the tubes are seated flat in their tube racks"
+          }
+        ]
+      },
+      {
+        "name": "Run of Protocol",
+        "instructions": [
+          {
+            "name": "Execute the protocol named 'v1_station_c_S9_bp_primerdesign_p20multi.py'"
+          }
+        ],
+        "action": "3/Run"
+      },
+      {
+        "name": "Prepare the positive control diluted down to 1.7 copies/µL",
+        "instructions": [
+          {
+            "name": "label 3 different 1.5 mL sterile tubes as 1, 2 and 3"
+          },
+          {
+            "name": "pipette 990 μL of nuclease free water into tube 1 and 2"
+          },
+          {
+            "name": "pipette 90 μL of nuclease free water into tube 3"
+          },
+          {
+            "name": "transfer 10 μL of resuspended PCT into the tube 1 and vortex tube 1 for 20 times"
+          },
+          {
+            "name": "transfer 10 μL of the content of tube 1 to tube 2 and vortex tube 2 for 20 times"
+          },
+          {
+            "name": "transfer 10 μL of the content of tube 2 to tube 3 and vortex tube 3 for 20 times (now tube 3 contains 1.7 copies/μL)"
+          }
+        ]
+      },
+      {
+        "name": "Collect the 96 well 200 µL BIO-RAD PCR plate from SLOT 4. This is the process output"
+      },
+      {
+        "name": "Scan the barcode on the 96 well 200 µL BIO-RAD PCR plate from SLOT 4",
+        "instructions": [
+          {
+            "name": "Scan the barcode",
+            "isInput":1
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "output"
+
+      },
+      {
+        "name": "In position A10 of the 96 well 200 µL BIO-RAD PCR plate: pipette 8 µL of the positive control from the tube labeled as 3 (1.7 copies/µL)"
+      },
+      {
+        "name": "Seal the 96 well 200 µL BIO-RAD PCR plate with its own transparent sealing"
+      },
+      {
+        "name": "Centrifuge the sealed 96 well 200 µL BIO-RAD PCR plate (2000 rpm, 5 min, 4 °C)"
+      },
+      {
+        "name": "Move the centrifuged 96 well 200 µL BIO-RAD PCR plate to the PCR room"
+      },
+      {
+        "name": "Collect the 96 well 200 µL PCR plate with the remaining extractions from SLOT 1"
+      },
+      {
+        "name": "Seal the 96 well 200 µL PCR plate with the remaining extractions"
+      },
+      {
+        "name": "Place the sealed 96 well 200 µL PCR plate with the remaining extractions into the freezer at - 20 °C"
+      },
+      {
+        "name": "Remove from the deck and throw out",
+        "instructions": [
+          {
+            "name": "the tube strip"
+          },
+          {
+            "name": "the 1.5 mL sterile tube (screw cap type)"
+          }
+        ]
+      },
+      {
+        "name": "Remove from the deck and wipe down using wipes wet with ethanol",
+        "instructions": [
+          {
+            "name": "the 3 different 96 position aluminum blocks"
+          },
+          {
+            "name": "the 24 position aluminum block"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "4th RUN",
+    "tasks": [
+      {
+        "name": "Start a new Run",
+        "action": "getnewrunid",
+        "instructions": [
+          {
+            "name": "Get new run ID"
+          }
+        ]
+      },
+      {
+        "name": "Initial Station C Steps",
+        "instructions": [
+          {
+            "name": "Remove the 1st 96 position aluminum block from the freezer and place on top of the temperature module already located in SLOT 4"
+          },
+          {
+            "name": "Scan the barcode on a 96 well 200 µL BIO-RAD PCR ",
+            "isInput": 1
+          },
+          {
+            "name": "Place the 96 well 200 µL BIO-RAD PCR plate on the 1st 96 position aluminum block placed on top of the temperature module already located in SLOT 4"
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "output"
+      },
+      {
+        "name": "Temperature Module Verification",
+        "instructions": [
+          {
+            "name": "Ensure the temperature module has reached 4 °C"
+          }
+        ],
+        "action": "3/calibration"
+      },
+      {
+        "name": "Prepare the 24 position prechilled aluminum block for reagents",
+        "instructions": [
+          {
+            "name": "remove the 24 position aluminum block from the freezer"
+          },
+          {
+            "name": "pipette in a 1.5 mL sterile tube (screw cap type)",
+            "notes": [
+              "1.050 mL of 2x One-Step RT-qPCR Mastermix1",
+              "220 µL of Primer/Probe mix (nCov and IEC primers)"
+            ]
+          },
+          {
+            "name": "place the filled 1.5 mL sterile tube (screw cap) in position A1 (top left) of the 24 position prechilled aluminum block"
+          }
+        ]
+      },
+      {
+        "name": "Place the 24 position prechilled aluminum block with the filled 1.5 mL sterile tube in SLOT 5"
+      },
+      {
+        "name": "Prepare a 2nd 96 position prechilled aluminum block",
+        "instructions": [
+          {
+            "name": "remove a 2nd 96 position aluminum block from the freezer"
+          },
+          {
+            "name": "place into the 1st column (on the left) a 200 µL PCR tube strip"
+          }
+        ]
+      },
+      {
+        "name": "Place the 2nd 96 position prechilled aluminum block containing the tube strip in SLOT 8"
+      },
+      {
+        "name": "Remove from the freezer a 3rd 96 position aluminum block and place it in SLOT 1"
+      },
+      {
+        "name": "Scan the barcode on the centrifuged 96 well 200 µL PCR plate that was the output from Station B",
+        "instructions": [
+          {
+            "name": "Scan the barcode",
+            "isInput":1
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "input/B"
+
+      },
+      {
+        "name": "Place the 96 well 200 µL PCR plate that was the output from Station B on top of the 96 position prechilled aluminum block already located in SLOT 1"
+      },
+      {
+        "name": "Double-check that",
+        "instructions": [
+          {
+            "name": "the positioning of the labware using the outline in the SOP relevant to station C as a reference"
+          },
+          {
+            "name": "the labware is inserted the right way around (well A1 or 1 at the top-left)"
+          },
+          {
+            "name": "the labware is properly clicked into each deck slots"
+          },
+          {
+            "name": "the tubes are seated flat in their tube racks"
+          }
+        ]
+      },
+      {
+        "name": "Run of Protocol",
+        "instructions": [
+          {
+            "name": "Execute the protocol named 'v1_station_c_S9_bp_primerdesign_p20multi.py'"
+          }
+        ],
+        "action": "3/Run"
+      },
+      {
+        "name": "Prepare the positive control diluted down to 1.7 copies/µL",
+        "instructions": [
+          {
+            "name": "label 3 different 1.5 mL sterile tubes as 1, 2 and 3"
+          },
+          {
+            "name": "pipette 990 μL of nuclease free water into tube 1 and 2"
+          },
+          {
+            "name": "pipette 90 μL of nuclease free water into tube 3"
+          },
+          {
+            "name": "transfer 10 μL of resuspended PCT into the tube 1 and vortex tube 1 for 20 times"
+          },
+          {
+            "name": "transfer 10 μL of the content of tube 1 to tube 2 and vortex tube 2 for 20 times"
+          },
+          {
+            "name": "transfer 10 μL of the content of tube 2 to tube 3 and vortex tube 3 for 20 times (now tube 3 contains 1.7 copies/μL)"
+          }
+        ]
+      },
+      {
+        "name": "Collect the 96 well 200 µL BIO-RAD PCR plate from SLOT 4. This is the process output"
+      },
+      {
+        "name": "Scan the barcode on the 96 well 200 µL BIO-RAD PCR plate from SLOT 4",
+        "instructions": [
+          {
+            "name": "Scan the barcode",
+            "isInput":1
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "output"
+
+      },
+      {
+        "name": "In position A10 of the 96 well 200 µL BIO-RAD PCR plate: pipette 8 µL of the positive control from the tube labeled as 3 (1.7 copies/µL)"
+      },
+      {
+        "name": "Seal the 96 well 200 µL BIO-RAD PCR plate with its own transparent sealing"
+      },
+      {
+        "name": "Centrifuge the sealed 96 well 200 µL BIO-RAD PCR plate (2000 rpm, 5 min, 4 °C)"
+      },
+      {
+        "name": "Move the centrifuged 96 well 200 µL BIO-RAD PCR plate to the PCR room"
+      },
+      {
+        "name": "Collect the 96 well 200 µL PCR plate with the remaining extractions from SLOT 1"
+      },
+      {
+        "name": "Seal the 96 well 200 µL PCR plate with the remaining extractions"
+      },
+      {
+        "name": "Place the sealed 96 well 200 µL PCR plate with the remaining extractions into the freezer at - 20 °C"
+      },
+      {
+        "name": "Remove from the deck and throw out",
+        "instructions": [
+          {
+            "name": "the tube strip"
+          },
+          {
+            "name": "the 1.5 mL sterile tube (screw cap type)"
+          }
+        ]
+      },
+      {
+        "name": "Remove from the deck and wipe down using wipes wet with ethanol",
+        "instructions": [
+          {
+            "name": "the 3 different 96 position aluminum blocks"
+          },
+          {
+            "name": "the 24 position aluminum block"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "5th RUN",
+    "tasks": [
+      {
+        "name": "Start a new Run",
+        "action": "getnewrunid",
+        "instructions": [
+          {
+            "name": "Get new run ID"
+          }
+        ]
+      },
+      {
+        "name": "Initial Station C Steps",
+        "instructions": [
+          {
+            "name": "Remove the 1st 96 position aluminum block from the freezer and place on top of the temperature module already located in SLOT 4"
+          },
+          {
+            "name": "Scan the barcode on a 96 well 200 µL BIO-RAD PCR ",
+            "isInput":1
+          },
+          {
+            "name": "Place the 96 well 200 µL BIO-RAD PCR plate on the 1st 96 position aluminum block placed on top of the temperature module already located in SLOT 4"
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "output"
+      },
+      {
+        "name": "Temperature Module Verification",
+        "instructions": [
+          {
+            "name": "Ensure the temperature module has reached 4 °C"
+          }
+        ],
+        "action": "3/calibration"
+      },
+      {
+        "name": "Prepare the 24 position prechilled aluminum block for reagents",
+        "instructions": [
+          {
+            "name": "remove the 24 position aluminum block from the freezer"
+          },
+          {
+            "name": "pipette in a 1.5 mL sterile tube (screw cap type)",
+            "notes": [
+              "1.050 mL of 2x One-Step RT-qPCR Mastermix1",
+              "220 µL of Primer/Probe mix (nCov and IEC primers)"
+            ]
+          },
+          {
+            "name": "place the filled 1.5 mL sterile tube (screw cap) in position A1 (top left) of the 24 position prechilled aluminum block"
+          }
+        ]
+      },
+      {
+        "name": "Place the 24 position prechilled aluminum block with the filled 1.5 mL sterile tube in SLOT 5"
+      },
+      {
+        "name": "Prepare a 2nd 96 position prechilled aluminum block",
+        "instructions": [
+          {
+            "name": "remove a 2nd 96 position aluminum block from the freezer"
+          },
+          {
+            "name": "place into the 1st column (on the left) a 200 µL PCR tube strip"
+          }
+        ]
+      },
+      {
+        "name": "Place the 2nd 96 position prechilled aluminum block containing the tube strip in SLOT 8"
+      },
+      {
+        "name": "Remove from the freezer a 3rd 96 position aluminum block and place it in SLOT 1"
+      },
+      {
+        "name": "Scan the barcode on the centrifuged 96 well 200 µL PCR plate that was the output from Station B",
+        "instructions": [
+          {
+            "name": "Scan the barcode",
+            "isInput":1
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "input/B"
+
+      },
+      {
+        "name": "Place the 96 well 200 µL PCR plate that was the output from Station B on top of the 96 position prechilled aluminum block already located in SLOT 1"
+      },
+      {
+        "name": "Double-check that",
+        "instructions": [
+          {
+            "name": "the positioning of the labware using the outline in the SOP relevant to station C as a reference"
+          },
+          {
+            "name": "the labware is inserted the right way around (well A1 or 1 at the top-left)"
+          },
+          {
+            "name": "the labware is properly clicked into each deck slots"
+          },
+          {
+            "name": "the tubes are seated flat in their tube racks"
+          }
+        ]
+      },
+      {
+        "name": "Run of Protocol",
+        "instructions": [
+          {
+            "name": "Execute the protocol named 'v1_station_c_S9_bp_primerdesign_p20multi.py'"
+          }
+        ],
+        "action": "3/Run"
+      },
+      {
+        "name": "Prepare the positive control diluted down to 1.7 copies/µL",
+        "instructions": [
+          {
+            "name": "label 3 different 1.5 mL sterile tubes as 1, 2 and 3"
+          },
+          {
+            "name": "pipette 990 μL of nuclease free water into tube 1 and 2"
+          },
+          {
+            "name": "pipette 90 μL of nuclease free water into tube 3"
+          },
+          {
+            "name": "transfer 10 μL of resuspended PCT into the tube 1 and vortex tube 1 for 20 times"
+          },
+          {
+            "name": "transfer 10 μL of the content of tube 1 to tube 2 and vortex tube 2 for 20 times"
+          },
+          {
+            "name": "transfer 10 μL of the content of tube 2 to tube 3 and vortex tube 3 for 20 times (now tube 3 contains 1.7 copies/μL)"
+          }
+        ]
+      },
+      {
+        "name": "Collect the 96 well 200 µL BIO-RAD PCR plate from SLOT 4. This is the process output"
+      },
+      {
+        "name": "Scan the barcode on the 96 well 200 µL BIO-RAD PCR plate from SLOT 4",
+        "instructions": [
+          {
+            "name": "Scan the barcode",
+            "isInput": 1
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "output"
+
+      },
+      {
+        "name": "In position A10 of the 96 well 200 µL BIO-RAD PCR plate: pipette 8 µL of the positive control from the tube labeled as 3 (1.7 copies/µL)"
+      },
+      {
+        "name": "Seal the 96 well 200 µL BIO-RAD PCR plate with its own transparent sealing"
+      },
+      {
+        "name": "Centrifuge the sealed 96 well 200 µL BIO-RAD PCR plate (2000 rpm, 5 min, 4 °C)"
+      },
+      {
+        "name": "Move the centrifuged 96 well 200 µL BIO-RAD PCR plate to the PCR room"
+      },
+      {
+        "name": "Collect the 96 well 200 µL PCR plate with the remaining extractions from SLOT 1"
+      },
+      {
+        "name": "Seal the 96 well 200 µL PCR plate with the remaining extractions"
+      },
+      {
+        "name": "Place the sealed 96 well 200 µL PCR plate with the remaining extractions into the freezer at - 20 °C"
+      },
+      {
+        "name": "Remove from the deck and throw out",
+        "instructions": [
+          {
+            "name": "the tube strip"
+          },
+          {
+            "name": "the 1.5 mL sterile tube (screw cap type)"
+          }
+        ]
+      },
+      {
+        "name": "Remove from the deck and wipe down using wipes wet with ethanol",
+        "instructions": [
+          {
+            "name": "the 3 different 96 position aluminum blocks"
+          },
+          {
+            "name": "the 24 position aluminum block"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Part Cleaning",
+    "tasks": [
+      {
+        "name": "Remove from the deck and throw out",
+        "instructions": [
+          {
+            "name": "the used filter tips and their racks"
+          },
+          {
+            "name": "the tube strip"
+          },
+          {
+            "name": "the 1.5 mL sterile tube (screw cap type)"
+          }
+        ]
+      },
+      {
+        "name": "Remove from the deck and wipe down using wipes wet with ethanol",
+        "instructions": [
+          {
+            "name": "the 3 different 96 position aluminum blocks"
+          },
+          {
+            "name": "the 24 position aluminum block"
+          }
+        ]
+      },
+      {
+        "name": "Wipe down, using wipes wet with ethanol, the temperature module"
+      }
+    ]
+  },
+  {
+    "name": "Deck cleaning",
+    "tasks": [
+      {
+        "name": "Wipe down, using wipes wet with a 10% solution of sodium hypochlorite",
+        "instructions": [
+          {
+            "name": "clear polycarbonate windows"
+          },
+          {
+            "name": "black pipette stems"
+          },
+          {
+            "name": "aluminum deck"
+          },
+          {
+            "name": "removable black trash bin"
+          }
+        ]
+      },
+      {
+        "name": "Wait 30 seconds, then quickly rinse the sodium hypochlorite solution off with distilled water"
+      },
+      {
+        "name": "Wipe down these parts using wipes wet with RNaseZap RNase or RNase AWAY"
+      },
+      {
+        "name": "Wait 30 seconds, then quickly rinse with RNaseZap or RNase AWAY with distilled water"
+      },
+      {
+        "name": "Wipe the robot dry, or let the water evaporate"
+      },
+      {
+        "name": "Wipe down these parts using wipes wet with ethanol"
+      }
+    ]
+  }
+]

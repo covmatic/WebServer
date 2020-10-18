@@ -1,0 +1,83 @@
+[
+  {
+    "name": "ISSUANCE",
+    "tasks": [
+      {
+        "name": "Machine Setup",
+        "instructions": [
+          {
+            "name": "Check that the RT-PCR BioRad CFX96 platform is ON"
+          },
+          {
+            "name": "Verify the power of laser channel on the RT-PCR BioRad CFX96 platform (i.e. absence of alarms)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Run preparation",
+    "tasks": [
+      {
+        "name": "Scan the barcode on the sealed 96 well 200 µL BIO-RAD PCR plate already centrifuged",
+        "instructions": [
+          {
+            "name": "Scan the barcode",
+            "isInput": 1
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "input/B"
+
+      },
+      {
+        "name": "Place the centrifuged 96 well 200 µL BIO-RAD PCR plate in the RT-PCR BioRad CFX96 platform",
+        "instructions": [
+          {
+            "name": "check that the 96 well 200 µL BIO-RAD PCR plate is inserted in the right direction, i.e. the well numbered as A1 or as 1 is at the top left corner"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Run protocol",
+    "tasks": [
+      {
+        "name": "Run initialization",
+        "instructions": [
+          {
+            "name": "Start the protocol"
+          }
+        ],
+        "action": "4/PCR"
+      },
+      {
+        "name": "Run closing",
+        "instructions": [
+          {
+            "name": "Remove the sealed 96 well 200 µL BIO-RAD PCR plate from the RT-PCR BioRad CFX96 platform"
+          },
+          {
+            "name": "Scan the barcode on the sealed 96 well 200 µL BIO-RAD PCR plate",
+            "isInput":1
+          },
+          {
+            "name": "Check the results obtained"
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "input/B"
+
+      },
+      {
+        "name": "Cleaning",
+        "instructions": [
+          {
+            "name": "Throw out the NEST 100 µL PCR plate that was output from the PCR"
+          }
+        ]
+      }
+    ]
+  }
+]

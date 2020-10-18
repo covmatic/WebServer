@@ -1,0 +1,344 @@
+[
+  {
+    "name": "ISSUANCE",
+    "tasks": [
+      {
+        "name": "Check of the cleaning and equipment:",
+        "instructions": [
+          {
+            "name": "Check that have been cleaned",
+            "notes": [
+              "the deck of the robot",
+              "the removable parts needed for operating the robot",
+              "the dedicated incubator"
+            ]
+          },
+          {
+            "name": "Check that the robot is equipped with",
+            "notes": [
+              "a p20 multi channel pipette",
+              "a p1000 single channel pipette"
+            ]
+          },
+          {
+            "name": "Check the presence of unique barcodes on",
+            "notes": [
+              "the 4 different 24 position tube racks"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Opentrons Preparation",
+    "tasks": [
+      {
+        "name": "Loading of the machine",
+        "instructions": [
+          {
+            "name": "Place the 96 position aluminum block with the filled 200 µL PCR tube strip on top of the temperature module already located in SLOT 10"
+          },
+          {
+            "name": "Place a sterile rack full of 200 µL filter tips in",
+            "notes": [
+              "SLOT 9",
+              "SLOT 8"
+            ]
+          },
+          {
+            "name": "Place a sterile rack full of 20 µL filter tips in SLOT 7"
+          },
+          {
+            "name": "Place the empty, sterile 96 2 mL deep well plate in SLOT 1"
+          }
+        ]
+      },
+      {
+        "name": "Scan the barcode on an empty, sterile 96 2 mL deep well plate",
+        "instructions": [
+          {
+            "name": "Scan the barcode",
+            "isInput": 1
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "output"
+
+      }
+    ]
+  },
+  {
+    "name": "Rack Preparation",
+    "tasks": [
+      {
+        "name": "Scan the barcode on Rack 1",
+        "instructions": [
+          {
+            "name": "Scan the barcode",
+            "isInput" : true
+          },
+          {
+            "name": "Place Rack 1 in SLOT 2"
+          }
+        ]
+        ,"input": "barcode",
+        "endpoint": "input/0"
+      },
+      {
+        "name": "Scan the barcode on Rack 2",
+        "instructions": [
+          {
+            "name": "Scan the barcode",
+            "isInput":1
+          },
+          {
+            "name": "Place Rack 2 in SLOT 3"
+          }
+        ]
+        ,"input": "barcode",
+        "endpoint": "input/0"
+      },
+      {
+        "name": "Scan the barcode on Rack 3",
+        "instructions": [
+          {
+            "name": "Scan the barcode",
+            "isInput": 1
+          },
+          {
+            "name": "Place Rack 3 in SLOT 5"
+          }
+        ]
+        ,"input": "barcode",
+        "endpoint": "input/0"
+      },
+      {
+        "name": "Scan the barcode on Rack 4",
+        "instructions": [
+          {
+            "name": "Scan the barcode",
+            "isInput":1
+          },
+          {
+            "name": "Place Rack 4 in SLOT 6"
+          }
+        ]
+        ,"input": "barcode",
+        "endpoint": "input/0"
+
+      },
+      {
+        "name": "Prepare the 6 position tube rack, placing in position A1 a 50 mL sterile Falcon tube prepared as follows",
+        "instructions": [
+          {
+            "name": "add 17.5 mL of lysis buffer measured with a graduated cylinder"
+          },
+          {
+            "name": "pipette 1.2 mL of proteinase K",
+            "notes": [
+              "please note that this step is time-sensitive. As soon as you pipette the proteinase K, a degradation phenomenon would start. Continue quickly through the next steps"
+            ]
+          },
+          {
+            "name": "Place the 6 position tube rack containing the filled 50 mL Falcon tube in SLOT 4"
+          }
+        ]
+      },
+      {
+        "name": "Temperature Module Verification",
+        "instructions": [
+          {
+            "name": "Ensure the temperature module has reached 25 °C"
+          }
+        ],
+        "action": "1/checktemp"
+      }
+    ]
+  },
+  {
+    "name": "Plate Preperation",
+    "tasks": [
+      {
+        "name": "Prepare the 96 position aluminum block",
+        "instructions": [
+          {
+            "name": "place in the first 3 columns a 200 µL PCR tube strip"
+          },
+          {
+            "name": "place in the last columns on the left (which is the first column on the right) a 200 µL PCR tube strips"
+          },
+          {
+            "name": "Place in the 96 position aluminum block with the filled 200 µL PCR tube strips in SLOT 10"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Final check",
+    "tasks": [
+      {
+        "name": "Double-check that",
+        "instructions": [
+          {
+            "name": "the positioning of the labware using the outline in the SOP relevant to station A as a reference"
+          },
+          {
+            "name": "the labware is inserted the right way around (well A1 or 1 at the top-left)"
+          },
+          {
+            "name": "the labware is properly clicked into each deck slots"
+          },
+          {
+            "name": "the tubes are seated flat in their tube racks"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Run Protocol",
+    "tasks": [
+      {
+        "name": "Run pre incubation protocol",
+        "instructions": [
+          {
+            "name": "Start the protocol named “Protocol_A_part_1.py”"
+          }
+        ],
+        "action": "1/Pre-IncubationV1"
+      },
+      {
+        "name": "Scan the barcode on the 96 2mL deep well plate located in SLOT 1",
+        "instructions": [
+          {
+            "name": "Scan the barcode",
+            "isInput": 1
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "output"
+      },
+      {
+        "name": "Incubation",
+        "instructions": [
+          {
+            "name": "Remove the 96 2 mL deep well plate from SLOT 1"
+          },
+          {
+            "name": "Seal the 96 2 mL deep well plate with a an aluminum seal"
+          },
+          {
+            "name": "Incubate the 96 deep well plate at 55-57 °C for 20 min"
+          }
+        ]
+      },
+      {
+        "name": "Resume",
+        "instructions": [
+          {
+            "name": "Hit Resume"
+          }
+        ],
+        "action": "1/Post-IncubationV1"
+      },
+      {
+        "name": "Get tubes from incubation",
+        "instructions": [
+          {
+            "name": "Remove the 96 2mL deep well plate from the incubator"
+          },
+          {
+            "name": "Remove the seal from the 96 2 mL deep well plate"
+          },
+          {
+            "name": "Scan the barcode on the 96 2 mL deep well plate",
+            "isInput":1
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "output"
+      },
+      {
+        "name": "Run closing",
+        "instructions": [
+          {
+            "name": "Scan the barcode on the 96 2mL deep well plate located in SLOT 1",
+            "isInput": 1
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "output"
+
+      }
+    ]
+  },
+  {
+    "name": "Cleaning part 1",
+    "tasks": [
+      {
+        "name": "Cleaning",
+        "instructions": [
+          {
+            "name": "Remove from the deck and throw out",
+            "notes": [
+              "the used filter tips and their racks",
+              "the 200 uL PCR tube strips",
+              "the falcon tube"
+            ]
+          },
+          {
+            "name": "Remove from the deck and store in freezer (- 20 °C) the collection tubes containing the patient samples"
+          },
+          {
+            "name": "Remove from the deck and wipe down using wipes wet with ethanol",
+            "notes": [
+              "the 4 differents 24 position tube racks",
+              "the 6 position tube racks",
+              "the 96 position aluminum block",
+              "the 4 different plexiglas mask"
+            ]
+          },
+          {
+            "name": "Wipe down, using wipes wet with ethanol, the incubator"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Cleaning part 2",
+    "tasks": [
+      {
+        "name": "Cleaning 2",
+        "instructions": [
+          {
+            "name": "Wipe down, using wipes wet with a 10% solution of sodium hypochlorite",
+            "notes": [
+              "clear polycarbonate windows",
+              "black pipette stems",
+              "aluminium deck",
+              "removable black trash bin"
+            ]
+          },
+          {
+            "name": "Wait 30 seconds, then quickly rinse the sodium hypochlorite solution off with distilled water"
+          },
+          {
+            "name": "Wipe down these parts using wipes wet with RNaseZap RNase or RNase AWAY"
+          },
+          {
+            "name": "Wait 30 seconds, then quickly rinse with RNaseZap or RNase AWAY with distilled water"
+          },
+          {
+            "name": "Wipe the robot dry, or let the water evaporate"
+          },
+          {
+            "name": "Wipe down these parts using wipes wet with ethanol"
+          }
+        ]
+      }
+    ]
+  }
+]

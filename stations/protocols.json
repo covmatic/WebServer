@@ -1,0 +1,27 @@
+{
+  "0":{
+    "stations": ["OT-001"]
+    ,"mbrTemplate": "station0.json"
+    ,"protocolName": "station0"
+  },
+  "A":{
+    "stations": ["OT-A01", "OT-A02", "OT-A03", "OT-A04", "OT-A05", "OT-A06"]
+    ,"mbrTemplate": "stationA.json"
+    ,"protocolName": "stationA"
+  },
+  "B":{
+    "stations": ["OT-B01", "OT-B02", "OT-B03", "OT-B04", "OT-B05", "OT-B06", "OT-B07", "OT-B08", "OT-B09", "OT-B10", "OT-B11", "OT-B12"]
+    ,"mbrTemplate": "stationB.json"
+    ,"protocolName": "stationB"
+  },
+  "C":{
+    "stations": ["OT-C01"]
+    ,"mbrTemplate": "stationC.json"
+    ,"protocolName": "stationC"
+  },
+  "PCR":{
+    "stations": ["PCR1", "PCR2", "PCR3", "PCR4"]
+    ,"mbrTemplate": "PCR.json"
+    ,"protocolName": "PCR"
+  }
+}

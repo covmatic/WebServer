@@ -1,0 +1,317 @@
+[
+  {
+    "name": "Initial Checks",
+    "tasks": [
+      {
+        "name": "Check that have been cleaned",
+        "instructions": [
+          {
+            "name": "the deck of the robot"
+          },
+          {
+            "name": "the removable parts needed for operating the robot"
+          }
+        ]
+      },
+      {
+        "name": "Check that the robot is equipped with",
+        "instructions": [
+          {
+            "name": "a p300 8 channel pipettes"
+          }
+        ]
+      },
+      {
+        "name": "Place a first empty 1-well reservoir in SLOT 11",
+        "instructions": [
+          {
+            "name": "Place a first empty 1-well reservoir in SLOT 11"
+          }
+        ]
+      },
+      {
+        "name": "Place a sterile rack full of 200 µL filter tips in",
+        "instructions": [
+          {
+            "name": "SLOT10"
+          },
+          {
+            "name": "SLOT9"
+          },
+          {
+            "name": "SLOT8"
+          },
+          {
+            "name": "SLOT7"
+          },
+          {
+            "name": "SLOT6"
+          },
+          {
+            "name": "SLOT3"
+          }
+        ]
+      },
+      {
+        "name": "Place the magnetic module in SLOT 4"
+      },
+      {
+        "name": "Place a 96 position aluminum block in SLOT 1"
+      },
+      {
+        "name": "Scan the barcode on an empty, sterile 96 well 200 µL PCR plate",
+        "instructions": [
+          {
+            "name": "barcode",
+            "isInput": 1
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "output"
+
+      },
+      {
+        "name": "Place the empty, sterile 96 well 200 µL PCR plate on the 96 position aluminum block already placed in SLOT 1"
+      }
+    ]
+  },
+  {
+    "name": "Run Preperation",
+    "tasks": [
+      {
+        "name": "Prepare the Reagent Trough 1 (12-well reservoir)",
+        "instructions": [
+          {
+            "name": "First 6 wells with Wash A"
+          },
+          {
+            "name": "Lasts 6 wells with Wash B"
+          }
+        ]
+      },
+      {
+        "name": "Place the Reagent Trough 1 (12-well reservoir) in SLOT 5"
+      },
+      {
+        "name": "Prepare the Reagent Trough 2 (12-well reservoir) with Elution Buffer"
+      },
+      {
+        "name": "Place the Reagent Trough 2 (1-well reservoir) in SLOT 2"
+      },
+      {
+        "name": "Place the 96 2 mL deep well plate that was output from Station A onto the magnetic module already placed in SLOT 4"
+      },
+      {
+        "name": "Scan the barcode on the 96 2 mL deep well plate that was output from Station A",
+        "instructions": [
+          {
+            "name": "barcode",
+            "isInput":1
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "input/A"
+
+      }
+    ]
+  },
+  {
+    "name": "Final Check",
+    "tasks": [
+      {
+        "name": "Double-check that",
+        "instructions": [
+          {
+            "name": "the positioning of the labware using the outline in the SOP relevant to station B as a reference"
+          },
+          {
+            "name": "the labware is inserted the right way around (well A1 or 1 at the top-left)"
+          },
+          {
+            "name": "the labware is properly clicked into each deck slots"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Run Initialization",
+    "tasks": [
+      {
+        "name": "Start the protocol",
+        "action": "2/Pre-Incubation"
+      }
+    ]
+  },
+  {
+    "name": " the protocol pauses for incubation",
+    "tasks": [
+      {
+        "name": "Scan the barcode on the 96 2mL deep well plate located in SLOT 1",
+        "instructions": [
+          {
+            "name": "barcode",
+            "isInput": 1
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "output"
+
+      }
+    ]
+  },
+  {
+    "name": "Incubation",
+    "tasks": [
+      {
+      "name": "Make sure to:",
+      "instructions": [
+      {
+        "name": "Remove the 96 2 mL deep well plate from SLOT 4"
+      },
+      {
+        "name": "Seal the 96 2 mL deep well plate with a an aluminum seal"
+      },
+      {
+        "name": " Incubate the 96 deep well plate at 55-57 °C for 30 min"
+      }
+    ]
+    }
+      ]
+  },
+  {
+    "name": "Post-Incubation",
+    "tasks": [
+      {
+        "name": "make sure to:",
+        "instructions": [
+          {
+            "name": "Remove the 96 2mL deep well plate from the incubator"
+          },
+          {
+            "name": "Remove the seal from the 96 2 mL deep well plate"
+          },
+          {
+            "name": " Place the 96 2 mL deep well plate back in SLOT 4 of the same robot"
+          },
+          {
+            "name": " Scan the barcode on the 96 2 mL deep well plate ",
+            "instructions": [
+              {
+                "name": "barcode",
+                "isInput":1
+              }
+            ],
+            "input": "barcode",
+            "endpoint": "output"
+
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Run of protocol Post-Incubation",
+    "tasks": [
+      {
+        "name": "The protocol might pause due to:",
+        "instructions": [
+          {
+            "name": "Empty the trash bin"
+          },
+          {
+            "name": "Empty the 1-well reservoir"
+          },
+          {
+            "name": "Add new racks full of 200µL filter tips"
+          }
+        ],
+        "action": "2/Post-Incubation"
+      }
+    ]
+  },
+  {
+    "name": "Run closing",
+    "tasks": [
+      {
+        "name": "Collect the 96 well 200 µL PCR plate from SLOT 1. This is the process output"
+      },
+      {
+        "name": "Scan the barcode on the 96 well 200 µL PCR plate from SLOT 1",
+        "instructions": [
+          {
+            "name": "Scan the barcode",
+            "isInput":1
+          }
+        ],
+        "input": "barcode",
+        "endpoint": "output"
+
+      }
+    ]
+  },
+  {
+    "name": "Part Cleaning",
+    "tasks": [
+      {
+        "name": "Remove from the deck and wipe down using wipes wet with ethanol",
+        "instructions": [
+          {
+            "name": "the 96 position aluminum block"
+          }
+        ]
+      },
+      {
+        "name": "Wipe down, using wipes wet with ethanol, the magnetic module"
+      },
+      {
+        "name": "Remove from the deck, wash and perform an autoclave cycle on",
+        "instructions": [
+          {
+            "name": "the 12-well reservoir"
+          },
+          {
+            "name": "the 1-well reservoir for liquid waste"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Deck Cleaning",
+    "tasks": [
+      {
+        "name": "Wipe down, using wipes wet with a 10% solution of sodium hypochlorite",
+        "instructions": [
+          {
+            "name": "clear polycarbonate windows"
+          },
+          {
+            "name": "black pipette stems"
+          },
+          {
+            "name": "aluminum deck"
+          },
+          {
+            "name": "removable black trash bin"
+          }
+        ]
+      },
+      {
+        "name": "Wait 30 seconds, then quickly rinse the sodium hypochlorite solution off with distilled water"
+      },
+      {
+        "name": "Wipe down these parts using wipes wet with RNaseZap RNase or RNase AWAY"
+      },
+      {
+        "name": "Wait 30 seconds, then quickly rinse with RNaseZap or RNase AWAY with distilled water"
+      },
+      {
+        "name": "Wipe the robot dry, or let the water evaporate"
+      },
+      {
+        "name": "Wipe down these parts using wipes wet with ethanol"
+      }
+    ]
+  }
+]
